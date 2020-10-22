@@ -1,6 +1,11 @@
 ﻿#include "Classes.h"
 
-EditPhoneMenu::EditPhoneMenu(): MainMenu(this->menuNames) {
+EditPhoneMenu::EditPhoneMenu() {
 	// en ufak fikrim yok şuan
-	
+	cout << " ";
+}
+
+int EditPhoneMenu::start() {
+
+	return 1;
 }

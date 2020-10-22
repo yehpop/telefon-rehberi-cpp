@@ -1,7 +1,7 @@
 ﻿#include "Classes.h"
 
 // I am not sure if I should use a map but, I'll keep it like this 'til I figure
-AddNewPhoneMenu::AddNewPhoneMenu() : MainMenu(this->menuNames) {
+AddNewPhoneMenu::AddNewPhoneMenu() {
 	/*string isim = "";
 	string soyisim = "";
 	stringstream telNo;
@@ -28,14 +28,31 @@ AddNewPhoneMenu::AddNewPhoneMenu() : MainMenu(this->menuNames) {
 	for (int i = 0; i < (sizeof(this->menuNames) / sizeof(string)); i++) {
 		this->menuNames[i] = menuNames[i];
 	}
+	rename_menus();
 }
 
-void AddNewPhoneMenu::print_menu() {
+/* void AddNewPhoneMenu::print_menu() {
 	// napcam lna
 	cout << "menu to add a phone" << endl;
-}
+} 
+*/
 
-/*int AddNewPhoneMenu::start() {
+int AddNewPhoneMenu::start() {
 	print_menu();
 	return true;
-*/
+}
+
+void AddNewPhoneMenu::rename_menus() {
+	cout << "rename_menus method running.." << endl;
+	stringstream ss;
+	ss.str("");
+	for (int i = 0; i < sizeof(this->menuNames) / sizeof(string); i++) {
+		ss.str("");
+		string menuName = this->menuNames[i];
+		ss << i + 1;
+		ss << "-";
+		ss << menuName;
+		this->menuNames[i] = ss.str();
+	}
+	cout << "rename_menus method exiting..." << endl;
+}

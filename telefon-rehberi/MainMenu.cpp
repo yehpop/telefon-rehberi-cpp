@@ -8,7 +8,7 @@ MainMenu::MainMenu(string menuNames[7]) {
 		// string arrayMember = this->menuNames[i];
 		// cout << arrayMember << endl;
 	}
-	rename_menus();
+	this->rename_menus();
 	// cout << endl << sizeof(this->menuNames) / sizeof(string) << endl;
 }
 
@@ -27,11 +27,13 @@ void MainMenu::rename_menus() {
 	cout << "rename_menus method exiting..." << endl;
 }
 
+// ya üsttekinde ya da alttakindeki bi şi alt-sınıfların menülerinin boş olmasına sebeb oluyo
+/*
 void MainMenu::print_menu() {
 	string mainMenuName = "TELEFON REHBERI";
 	int maxLen = 0;
 	for (int i = 0; i < sizeof(menuNames) / sizeof(string); i++) {
-		string menuName = menuNames[i];
+		string menuName = this->menuNames[i];
 		if (sizeof(menuName) / sizeof(char) > maxLen)
 			maxLen = (sizeof(menuName) / sizeof(char));
 	}
@@ -50,6 +52,7 @@ void MainMenu::print_menu() {
 		cout << arrayMember << endl;
 	}
 }
+*/
 
 int MainMenu::start() {
 	print_menu();
@@ -76,55 +79,18 @@ int MainMenu::redirect_input(int inp) {
 
 	*/
 	string menuSelection = menuNames[inp];
-	cout << menuSelection << endl;
+	cout << endl << menuSelection << endl;
+	cout << string(5, '\n');
 	if (menuSelection == menuNames[0]) {
 		AddNewPhoneMenu addNewPhoneMenu;
 		return addNewPhoneMenu.start();
 	}
 	else if (menuSelection == menuNames[1]) {
 		EditPhoneMenu editPhoneMenu;
-		return editPhoneMenu.start();
+		return editPhoneMenu.start();	// 2 girince program ölüyo niye acaba
 	}
 	else if (menuSelection == menuNames[6]) {
 		cout << "Telefon rehberinden cikis yapiliyor..." << endl;
 		exit;
-	}
-	// belki kullanırım?
-	else {
-		int redirector = 0;
-		switch (inp) {
-		case 1:
-			redirector = 1;
-			break;
-		case 2:
-			redirector = 2;
-			break;
-		case 3:
-			redirector = 3;
-			break;
-		case 4:
-			redirector = 4;
-			break;
-		case 5:
-			redirector = 5;
-			break;
-		case 6:
-			redirector = 6;
-			break;
-		case 7:
-			redirector = 7;
-			break;
-		case 8:
-			redirector = 8;
-			break;
-		case 9:
-			redirector = 9;
-			break;
-		default:
-			redirector = 0;
-			break;
-		}
-
-		return redirector;
 	}
 }

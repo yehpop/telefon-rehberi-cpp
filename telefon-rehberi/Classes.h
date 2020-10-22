@@ -6,12 +6,17 @@
 
 using namespace std;
 
-// Super-Classes
-
-class MainMenu {
-private:
+// Super-Class
+class ClassMenus {
+public:
 	string menuNames[7];
 	void print_menu();
+};
+
+// Sub-Classes
+
+class MainMenu: public ClassMenus {
+private:
 	int redirect_input(int inp);
 public:
 	MainMenu() {};
@@ -20,31 +25,28 @@ public:
 	void rename_menus();
 };
 
-// Sub-Classes
-
-class AddNewPhoneMenu : public MainMenu {
+class AddNewPhoneMenu: public ClassMenus {
 private:
 	string menuNames[7] =
-	{ 
+	{
 	"Ekleyeceginiz kaydin ismi: " ,
 	"Ekleyeceginiz kaydin soyismi: " ,
 	"Ekleyeceginiz kaydin tel no'su: " ,
 	"Ekleyeceginiz kaydin ev no'su: " ,
-	"Ekleyeceginiz kaydin email'i: ",
-	"",
-	""
+	"Ekleyeceginiz kaydin email'i: "
 	};
 	map<string, string> addPhoneMenuInputs; // not used atm
-	void print_menu(); // not used atm
+	void rename_menus();
+	// void print_menu(); // not used atm
 	void map_editor(map<string, string> addPhoneMenuInputs);
 public:
 	AddNewPhoneMenu();
-	// int start();
+	int start();
 };
 
-class EditPhoneMenu : public MainMenu {
+class EditPhoneMenu: public ClassMenus {
 private:
-	string menuNames[7] = 
+	string menuNames[7] =
 	{
 	"Edit Phone Menu...",
 	"",
@@ -56,4 +58,5 @@ private:
 	};
 public:
 	EditPhoneMenu();
+	int start();
 };

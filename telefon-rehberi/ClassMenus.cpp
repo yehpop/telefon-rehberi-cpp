@@ -1,5 +1,7 @@
 #include "Classes.h"
 
+using namespace std;
+
 void ClassMenus::print_menu() {
 	string mainMenuName = "TELEFON REHBERI";
 	int maxLen = 0;
